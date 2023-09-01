@@ -2,21 +2,31 @@
 
 {% block body %}
    
-        <p>{{poll.title}}</p>
-        <button type="button" class="btn btn-light">{{poll.Q1}}</button>
-        <button type="button" class="btn btn-light">{{poll.Q2}}</button>
+        <h1>{{poll.title}}</h1>
+        <br>
+        <br>
 
-        <form action="{% url 'polls:comment' poll_id=poll.id %}" method="POST">
+        <h1><button type="button" class="btn btn-light">{{poll.Q1}}</button></h1>
+        <h1><button type="button" class="btn btn-light">{{poll.Q2}}</button></h1>
+
+        <h3><form action="{% url 'polls:comment' poll_id=poll.id %}" method="POST">
             {% csrf_token %}
             {{comment_form}}
 
             <input type="submit"><br>
-            <a href="">NEXT<i class="bi bi-arrow-right-circle"></i></a>
             
-        </form>
+            
+        </form></h3>
+        <br>
 
+        <h3><a href="{% url 'polls:game' poll_id=2 %}">NEXT<i class="bi bi-arrow-right-circle"></i></a></h3> 
+        <br>
+        <br>
+        <br>
+
+        
         {% for comment in poll.comment_set.all %}
-            <p>{{comment.content}}</p>
+            <h5>{{comment.content}}</h5>
         {% endfor %}
 
 

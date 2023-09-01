@@ -23,7 +23,7 @@ def comment(request, poll_id):
             comment = comment_form.save(commit=False)
             comment.poll_id = poll_id
             comment.save()
-            return redirect('polls:game')
+            return redirect('polls:game', poll_id=poll_id )
     
 
 
