@@ -23,5 +23,17 @@ def comment(request, poll_id):
             comment = comment_form.save(commit=False)
             comment.poll_id = poll_id
             comment.save()
-            return redirect('polls:index')
+            return redirect('polls:game')
     
+
+
+def game(request,poll_id):
+    poll = Poll.objects.get(id=poll_id)
+    comment_form = CommentForm() 
+
+    context = {
+        'poll': poll,
+        'comment_form': comment_form,
+    }
+   
+    return render(request, 'game.html', context)

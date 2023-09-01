@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+   
+        <p>{{poll.title}}</p>
+        <button type="button" class="btn btn-light">{{poll.Q1}}</button>
+        <button type="button" class="btn btn-light">{{poll.Q2}}</button>
+
+        <form action="{% url 'polls:comment' poll_id=poll.id %}" method="POST">
+            {% csrf_token %}
+            {{comment_form}}
+
+            <input type="submit"><br>
+            <a href="">NEXT<i class="bi bi-arrow-right-circle"></i></a>
+            
+        </form>
+
+        {% for comment in poll.comment_set.all %}
+            <p>{{comment.content}}</p>
+        {% endfor %}
+
+
+
+
+{% endblock %}

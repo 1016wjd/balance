@@ -7,8 +7,9 @@ class Poll(models.Model):
     content = models.TextField()
     Q1 = models.TextField()
     Q2 = models.TextField()
+    #id = 
     #comment_set = 
-    
+
 class Comment(models.Model):
     content = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)

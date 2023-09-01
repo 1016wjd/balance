@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    {% for poll in polls %}
-        <p>{{poll.title}}</p>
-        <p>{{poll.content}}</p>
-        <button type="button" class="btn btn-light">{{poll.Q1}}</button>
-        <button type="button" class="btn btn-light">{{poll.Q2}}</button>
-
-        <form action="{% url 'polls:comment' poll_id=poll.id %}" method="POST">
-            {% csrf_token %}
-            {{comment_form}}
-            <input type="submit">
-        </form>
-
-        {% for comment in poll.comment_set.all %}
-            <p>{{comment.content}}</p>
-        {% endfor %}
-    {% endfor %}
-
-
-
+        <h1>
+            </br>
+            </br>
+            </br>
+            </br>
+            게임시작 </br>
+            <a href="{% url 'polls:game' poll_id=1 %}"><i  class="bi bi-hand-index"></i></a> 
+        </h1>
+        
 {% endblock %}
